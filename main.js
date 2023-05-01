@@ -21,13 +21,15 @@ form.addEventListener('submit', (e)=>{
     .then((data)=>{
 
         if (userName === ""){
-            alert('User not found, please input active username')
-            return
+            alert('Please enter a valid username...!') 
+            // document.getElementById('error-text').innerText="Please enter a valid username...!"
+            return;
         }
 
-        if (data.name === undefined){
-            alert('User not found')
-            return
+        else if (data.name === undefined){  
+            alert('User not found..!') 
+            // document.getElementById('error-text').innerText="User not found..!"
+            return;
         }
 
         if (data.bio === null){

@@ -11,6 +11,12 @@ body {
   background-color: #292e44;
 }
 
+p {
+	text-align: center;
+	color: orangered;
+	font-style: italic;
+}
+
 .main-container {
   margin: 0 5%;
 }
@@ -18,7 +24,7 @@ body {
 .fa-github{
   justify-self: center;
   margin: 0 auto;
-  font-size: 60px;
+  font-size: 100px;
   color: rgb(211, 208, 207);
 
 }
@@ -100,4 +106,8 @@ img {
   form {
     width: 90vw;
   }
+
+	input {
+		height: 30px;
+	}
 }
