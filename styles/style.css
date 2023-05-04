@@ -21,6 +21,10 @@ p {
   margin: 0 5%;
 }
 
+.info {
+  color: #b9b2b2;
+}
+
 .fa-github{
   justify-self: center;
   margin: 0 auto;

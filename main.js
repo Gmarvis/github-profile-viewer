@@ -20,16 +20,18 @@ form.addEventListener('submit', (e)=>{
     .then((result)=>result.json())
     .then((data)=>{
 
-        if (userName === ""){
-            alert('Please enter a valid username...!') 
-            // document.getElementById('error-text').innerText="Please enter a valid username...!"
+        if (!userName){
+            // alert('Please enter a valid username...!') 
+            document.getElementById('error-text').innerText="Please enter a valid username...!"
             return;
         }
 
         else if (data.name === undefined){  
-            alert('User not found..!') 
-            // document.getElementById('error-text').innerText="User not found..!"
+            // alert('User not found..!') 
+            document.getElementById('error-text').innerText="User not found..!"
             return;
+        } else {
+            document.getElementById('error-text').innerText=""
         }
 
         if (data.bio === null){
