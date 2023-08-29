@@ -20,14 +20,18 @@ form.addEventListener('submit', (e)=>{
     .then((result)=>result.json())
     .then((data)=>{
 
-        if (userName === ""){
-            alert('User not found, please input active username')
-            return
+        if (!userName){
+            // alert('Please enter a valid username...!') 
+            document.getElementById('error-text').innerText="Please enter a valid username...!"
+            return;
         }
 
-        if (data.name === undefined){
-            alert('User not found')
-            return
+        else if (data.name === undefined){  
+            // alert('User not found..!') 
+            document.getElementById('error-text').innerText="User not found..!"
+            return;
+        } else {
+            document.getElementById('error-text').innerText=""
         }
 
         if (data.bio === null){
@@ -42,23 +46,30 @@ form.addEventListener('submit', (e)=>{
             data.location=""
         }
 
+        // target the profile div in html to print the results data
+
+        // use avatar 
+
         document.getElementById('profile').innerHTML=`
         <a target="_blank" href="https://github.com/${userName}"> <img src="${data.avatar_url}"/> <a/>
         `
+
+        // print userName to the dom
         document.getElementById('name').innerText=`${data.name}`
 
-        document.getElementById('bio').innerText=`Bio : ${data.bio}`
+        // user bio
 
+        document.getElementById('bio').innerText=`Bio : ${data.bio}`
+        // followers and followings
         document.getElementById('following').innerText=`Followers : ${data.followers} | Following : ${data.following}`
 
+        // repositories
+
         document.getElementById('repo').innerText=`Repositories \n Public ${data.public_repos} | Private ${data.public_gists}`
+
+        // user location
         
         document.getElementById('location').innerText=`Location : ${data.location}`
-
-
-
-
-
     console.log(data)
     console.log(data.name)
     search = ''
@@ -68,10 +79,6 @@ form.addEventListener('submit', (e)=>{
     // .catch(error=>{
     //     alert(error)
     // })
-
-
-
-
 
 })
 
